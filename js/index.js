@@ -1,16 +1,11 @@
-/*Mail
+/*
+Mail
 
 Chiedi all’utente la sua email,
 controlla che sia nella lista di chi può accedere,
 stampa un messaggio appropriato sull’esito del controllo.
 
-Gioco dei dadi
-
-Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
-Stabilire il vincitore, in base a chi fa il punteggio più alto.
-Prima di partire a scrivere codice poniamoci qualche domanda:
-Che ci sia un array da qualche parte?
-Se dobbiamo confrontare qualcosa che "cosa" ci serve?*/
+*/
 
 
 //constante con tutte le email valide
@@ -37,15 +32,25 @@ const btn = document.getElementById('submitEmail');
             validEmail = validEmails[i];
         }
     }
-
+    //se la funzione è vera genera il testo + il bottone con il link per entrare nel gioco
     if (validEmail) {
         document.getElementById("inserisci").style.display = "none";
-        document.querySelector ("container").innerHTML += `
-            <h1> Benvenuto! </h1>
+        document.querySelector(".container").innerHTML = `
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <h1> Benvenuto! </h1>
+             <button type="button" class="btn btn-success"><a class="text-white text-decoration-none fs-4" href="./dadi.html">Gioca</a></button>
+            </div> 
         `;
-        
+      //se la funzione è falsa genera il testo è l'utente non può piu andare avanti
     } else {
         console.log('non sei stato invitato');
         document.getElementById("inserisci").style.display = "none";
+        document.querySelector(".container").innerHTML = `
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <h1 class="text-danger">Non sei stato invitato : lascia la pagina!</h1>
+        </div> 
+    `;
     }
+
 }
+ 
