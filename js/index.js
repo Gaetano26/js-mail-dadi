@@ -39,8 +39,13 @@ const btn = document.getElementById('submitEmail');
     }
 
     if (validEmail) {
-        console.log('benvenuto');
+        document.getElementById("inserisci").style.display = "none";
+        document.querySelector ("container").innerHTML += `
+            <h1> Benvenuto! </h1>
+        `;
+        
     } else {
         console.log('non sei stato invitato');
+        document.getElementById("inserisci").style.display = "none";
     }
 }
